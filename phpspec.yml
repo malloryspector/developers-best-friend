@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: DevTools
+        psr4_prefix: DevTools
+        src_path: app
