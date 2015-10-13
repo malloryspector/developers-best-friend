@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::controller('lorem-ipsum', 'LoremController');
+Route::controller('random-user-generator', 'RandomUserController');
+
+Route::get('/practice', function() {
+    echo 'Hello World!';
+});
