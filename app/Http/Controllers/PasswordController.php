@@ -4,23 +4,23 @@ namespace DevTools\Http\Controllers;
 
 use DevTools\Http\Controllers\Controller;
 
-class LoremController extends Controller {
+class PasswordController extends Controller {
 
   public function __construct() {
     # Put anything here that should happen before any of the other actions
   }
 
   /**
-  * Responds to requests to GET /lorem-ipsum
+  * Responds to requests to GET /xkcd-password-generator
   */
   public function getIndex() {
-    return view('lorem');
+    return view('xkcdpassword');
   }
 
   /**
-  * Responds to requests to POST /lorem-ipsum
+  * Responds to requests to POST /xkcd-password-generator
   */
   public function postIndex() {
-    return view('lorem');
+    return view('xkcdpassword');
   }
 }

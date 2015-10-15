@@ -11,12 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function() {
+    return view('index');
 });
 
 Route::controller('lorem-ipsum', 'LoremController');
 Route::controller('random-user-generator', 'RandomUserController');
+Route::controller('xkcd-password-generator', 'PasswordController');
 
 Route::get('/practice', function() {
     echo 'Hello World!';
