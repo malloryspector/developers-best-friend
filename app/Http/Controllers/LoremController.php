@@ -2,7 +2,9 @@
 
 namespace DevTools\Http\Controllers;
 
+use Badcow\LoremIpsum\Generator;
 use DevTools\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class LoremController extends Controller {
 
@@ -20,14 +22,20 @@ class LoremController extends Controller {
   /**
   * Responds to requests to POST /lorem-ipsum
   */
-  public function postIndex() {
-    // get the post value
+  public function postIndex(Request $request) {
+    // validate data
+    $this->validate($request, [
+      'number_of_paragraphs' => 'required|numeric|max:9',
+    ]);
 
-    $generator = new Badcow\LoremIpsum\Generator();
-    $paragraphs = $generator->getParagraphs(5);
-    echo implode('<p>', $paragraphs);
+    // set the number of paragraphs requested to a variable
+    $number_of_paragraphs = $request->input('number_of_paragraphs');
 
+    // use lorem ipsum package to generate paragraphs
+    $generator = new Generator();
+    $paragraphs = $generator->getParagraphs($number_of_paragraphs);
 
-    return view('lorem');
+    // return the lorem view with generated paragraphs
+    return view('lorem')->with('paragraphs', $paragraphs);
   }
 }
