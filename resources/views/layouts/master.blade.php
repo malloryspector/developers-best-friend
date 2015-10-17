@@ -19,16 +19,20 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    {{-- page specific styling --}}
+    @yield('styling')
   </head>
 
   <body>
   	<!-- Navigation -->
     <nav>
     	<div class="container">
-    		<h1 class="navbar-brand">Developer's Best Friend</h1>
-    		<ul class="nav navbar-nav">
-    			<li>Lorem Ipsum Generator</li>
-    			<li>Random User Generator</li>
+    		<a href="/" class="navbar-brand">Developer's Best Friend</a>
+    		<ul class="nav navbar-nav pull-right">
+    			<li><a href="/lorem-ipsum">Lorem Ipsum</a></li>
+    			<li><a href="/random-user-generator">Random User</a></li>
+          <li><a href="/xkcd-password-generator">xkcd Password</a></li>
     		</ul>
     	</div>
     </nav>
@@ -38,7 +42,7 @@
     	<div class="jumbotron">
     		<div class="container">
     			<div class="col-md-12">
-            {{-- Yield content for the jumbotron section --}}
+            {{-- Content for the jumbotron section --}}
             @yield('jumbotron')
     			</div>
     		</div>
@@ -49,15 +53,8 @@
     <section>
     	<div class="container">
     		<div class="row">
-    			<div class="col-md-4">
-    				<h2>Lorem Ipsum Generator</h2>
-    			</div>
-    			<div class="col-md-4">
-    				<h2>Random User Generator</h2>
-    			</div>
-          <div class="col-md-4">
-            <h2>XKCD Password Generator</h2>
-          </div>
+          {{-- Content for the tools section --}}
+          @yield('tools')
     		</div>
     	</div>
     </section>

@@ -21,6 +21,13 @@ class LoremController extends Controller {
   * Responds to requests to POST /lorem-ipsum
   */
   public function postIndex() {
+    // get the post value
+
+    $generator = new Badcow\LoremIpsum\Generator();
+    $paragraphs = $generator->getParagraphs(5);
+    echo implode('<p>', $paragraphs);
+
+
     return view('lorem');
   }
 }
