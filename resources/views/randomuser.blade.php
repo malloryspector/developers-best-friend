@@ -42,7 +42,19 @@
         <label for="email">E-Mail</label><br>
         {{-- Phone Number --}}
         <input type="checkbox" id="phone_number" name="phone_number" @if (isset($phone_number)) {{ "checked='checked'" }} @endif>
-        <label for="phone_number">Phone Number</label>
+        <label for="phone_number">Phone Number</label><br>
+        {{-- Username --}}
+        <input type="checkbox" id="username" name="username" @if (isset($username)) {{ "checked='checked'" }} @endif>
+        <label for="username">Username</label><br>
+        {{-- Password --}}
+        <input type="checkbox" id="password" name="password" @if (isset($password)) {{ "checked='checked'" }} @endif>
+        <label for="password">Password</label><br>
+        {{-- Birthday --}}
+        <input type="checkbox" id="birthday" name="birthday" @if (isset($birthday)) {{ "checked='checked'" }} @endif>
+        <label for="birthday">Birthday</label><br>
+        {{-- Blurb --}}
+        <input type="checkbox" id="blurb" name="blurb" @if (isset($blurb)) {{ "checked='checked'" }} @endif>
+        <label for="blurb">Profile Description</label>
       </div>
       <button type="submit" class="btn btn-default">Submit</button>
     </form>
@@ -53,16 +65,28 @@
     @if (isset($user_info))
       @foreach ($user_info as $user => $information)
         @if (isset($information['name']))
-          {{ $information['name'] }}<br>
+          <strong>Name: </strong>{{ $information['name'] }}<br>
         @endif
         @if (isset($information['address']))
-          {{ $information['address'] }}<br>
+          <strong>Address: </strong>{{ $information['address'] }}<br>
         @endif
         @if (isset($information['email']))
-          {{ $information['email'] }}<br>
+          <strong>Email: </strong>{{ $information['email'] }}<br>
         @endif
         @if (isset($information['phone_number']))
-          {{ $information['phone_number'] }}<br>
+          <strong>Phone Number: </strong>{{ $information['phone_number'] }}<br>
+        @endif
+        @if (isset($information['username']))
+          <strong>Username: </strong>{{ $information['username'] }}<br>
+        @endif
+        @if (isset($information['password']))
+          <strong>Password: </strong>{{ $information['password'] }}<br>
+        @endif
+        @if (isset($information['birthday']))
+          <strong>Birthday: </strong>{{ $information['birthday'] }}<br>
+        @endif
+        @if (isset($information['blurb']))
+          <strong>Profile Description: </strong>{{ $information['blurb'] }}<br>
         @endif
         <br>
       @endforeach

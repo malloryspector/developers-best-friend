@@ -17,7 +17,7 @@
   </div>
   <div class="col-md-4">
     <h2>Random User Generator</h2>
-    <p>The random user generator is a simple tool to help create random and fake users to use in any project. Choose from over 10 options of data to generate for each user.</p>
+    <p>The random user generator is a simple tool to help create random and fake users to use in any project. Choose from 8 options of data to generate for each user.</p>
     <a class="btn btn-default" href="/random-user-generator" role="button">Generate Users</a>
   </div>
   <div class="col-md-4">

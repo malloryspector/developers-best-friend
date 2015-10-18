@@ -19,12 +19,20 @@ class RandomUserController extends Controller {
     $address = true;
     $email = true;
     $phone_number = true;
+    $username = true;
+    $password = true;
+    $birthday = true;
+    $blurb = true;
 
     return view('randomuser')
       ->with('name', $name)
       ->with('address', $address)
       ->with('email', $email)
-      ->with('phone_number', $phone_number);
+      ->with('phone_number', $phone_number)
+      ->with('username', $username)
+      ->with('password', $password)
+      ->with('birthday', $birthday)
+      ->with('blurb', $blurb);
   }
 
   /**
@@ -44,6 +52,10 @@ class RandomUserController extends Controller {
     $address = $request->input('address');
     $email = $request->input('email');
     $phone_number = $request->input('phone_number');
+    $username = $request->input('username');
+    $password = $request->input('password');
+    $birthday = $request->input('birthday');
+    $blurb = $request->input('blurb');
 
     // create an empty array to hold user information
     $user_info = array();
@@ -62,6 +74,18 @@ class RandomUserController extends Controller {
       if (isset($phone_number)) {
         $user_info[$i]['phone_number'] = $faker->phoneNumber;
       }
+      if (isset($username)) {
+        $user_info[$i]['username'] = $faker->userName;
+      }
+      if (isset($password)) {
+        $user_info[$i]['password'] = $faker->password;
+      }
+      if (isset($birthday)) {
+        $user_info[$i]['birthday'] = $faker->date;
+      }
+      if (isset($blurb)) {
+        $user_info[$i]['blurb'] = $faker->paragraph($nbSentences = 3);
+      }
     }
 
     return view('randomuser')
@@ -70,6 +94,10 @@ class RandomUserController extends Controller {
       ->with('name', $name)
       ->with('address', $address)
       ->with('email', $email)
-      ->with('phone_number', $phone_number);
+      ->with('phone_number', $phone_number)
+      ->with('username', $username)
+      ->with('password', $password)
+      ->with('birthday', $birthday)
+      ->with('blurb', $blurb);
   }
 }
