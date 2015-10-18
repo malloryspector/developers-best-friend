@@ -15,7 +15,16 @@ class RandomUserController extends Controller {
   * Responds to requests to GET /random-user-generator
   */
   public function getIndex() {
-    return view('randomuser');
+    $name = true;
+    $address = true;
+    $email = true;
+    $phone_number = true;
+
+    return view('randomuser')
+      ->with('name', $name)
+      ->with('address', $address)
+      ->with('email', $email)
+      ->with('phone_number', $phone_number);
   }
 
   /**
@@ -55,6 +64,12 @@ class RandomUserController extends Controller {
       }
     }
 
-    return view('randomuser')->with('user_info', $user_info);
+    return view('randomuser')
+      ->with('user_info', $user_info)
+      ->with('number_of_users', $number_of_users)
+      ->with('name', $name)
+      ->with('address', $address)
+      ->with('email', $email)
+      ->with('phone_number', $phone_number);
   }
 }

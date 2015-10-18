@@ -17,20 +17,25 @@
       <div class="form-group">
         {{-- Number of Users --}}
         <label for="number_of_users">Number of Users</label>
-        <input type="text" class="form-control" id="number_of_users" name="number_of_users" placeholder="Number of Users">
+        <input type="text" class="form-control" id="number_of_users" name="number_of_users" value="{{ $number_of_users or 'Number of Users (9 max)' }}">
+        @if($errors->get('number_of_users'))
+          @foreach($errors->get('number_of_users') as $error)
+            {{ $error }}
+          @endforeach
+        @endif
       </div>
       <div class="form-group">
         {{-- Name --}}
-        <input type="checkbox" id="name" name="name">
+        <input type="checkbox" id="name" name="name" @if (isset($name)) {{ "checked='checked'" }} @endif>
         <label for="name">Name</label><br>
         {{-- Address --}}
-        <input type="checkbox" id="address" name="address">
+        <input type="checkbox" id="address" name="address" @if (isset($address)) {{ "checked='checked'" }} @endif>
         <label for="address">Address</label><br>
         {{-- Email --}}
-        <input type="checkbox" id="email" name="email">
+        <input type="checkbox" id="email" name="email" @if (isset($email)) {{ "checked='checked'" }} @endif>
         <label for="email">E-Mail</label><br>
         {{-- Phone Number --}}
-        <input type="checkbox" id="phone_number" name="phone_number">
+        <input type="checkbox" id="phone_number" name="phone_number" @if (isset($phone_number)) {{ "checked='checked'" }} @endif>
         <label for="phone_number">Phone Number</label>
       </div>
       <button type="submit" class="btn btn-default">Submit</button>

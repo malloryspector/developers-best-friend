@@ -36,6 +36,8 @@ class LoremController extends Controller {
     $paragraphs = $generator->getParagraphs($number_of_paragraphs);
 
     // return the lorem view with generated paragraphs
-    return view('lorem')->with('paragraphs', $paragraphs);
+    return view('lorem')
+      ->with('paragraphs', $paragraphs)
+      ->with('number_of_paragraphs', $number_of_paragraphs);
   }
 }

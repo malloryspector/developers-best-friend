@@ -17,7 +17,12 @@
       <div class="form-group">
         {{-- Number of Paragraphs --}}
         <label for="number_of_paragraphs">Number of Paragraphs</label>
-        <input type="text" class="form-control" id="number_of_paragraphs" name="number_of_paragraphs" placeholder="Number of Paragraphs">
+        <input type="text" class="form-control" id="number_of_paragraphs" name="number_of_paragraphs" value="{{ $number_of_paragraphs or 'Number of Paragraphs (9 max)' }}">
+        @if($errors->get('number_of_paragraphs'))
+          @foreach($errors->get('number_of_paragraphs') as $error)
+            {{ $error }}
+          @endforeach
+        @endif
       </div>
       <button type="submit" class="btn btn-default">Submit</button>
     </form>

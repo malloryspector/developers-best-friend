@@ -77,6 +77,13 @@ class PasswordController extends Controller {
 
     $password = implode($separator, $password_words);
 
-    return view('xkcdpassword')->with('password', $password);
+    return view('xkcdpassword')
+      ->with('password', $password)
+      ->with('number_of_words', $number_of_words)
+      ->with('add_a_number', $add_a_number)
+      ->with('additional_numbers', $additional_number_qty)
+      ->with('add_a_symbol', $add_a_symbol)
+      ->with('additional_symbols', $additional_symbol_qty)
+      ->with('separator', $separator);
   }
 }
