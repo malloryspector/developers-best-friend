@@ -20,8 +20,8 @@
       <input type='hidden' name='_token' value='{{ csrf_token() }}'>
       <div class="form-group">
         {{-- Number of Users --}}
-        <label for="number_of_users">Number of Users</label>
-        <input type="text" class="form-control" id="number_of_users" name="number_of_users" value="{{ $number_of_users or 'Number of Users (9 max)' }}">
+        <label for="number_of_users">Number of Users (9 max)</label>
+        <input type="text" class="form-control" id="number_of_users" name="number_of_users" value="{{ $number_of_users }}">
         <div class="error">
           @if($errors->get('number_of_users'))
             @foreach($errors->get('number_of_users') as $error)

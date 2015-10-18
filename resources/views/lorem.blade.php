@@ -20,8 +20,8 @@
       <input type='hidden'value='{{ csrf_token() }}' name='_token' >
       <div class="form-group">
         {{-- Number of Paragraphs --}}
-        <label for="number_of_paragraphs">Number of Paragraphs</label>
-        <input type="text" class="form-control" id="number_of_paragraphs" name="number_of_paragraphs" value="{{ $number_of_paragraphs or 'Number of Paragraphs (9 max)' }}">
+        <label for="number_of_paragraphs">Number of Paragraphs (9 max)</label>
+        <input type="text" class="form-control" id="number_of_paragraphs" name="number_of_paragraphs" value="{{ $number_of_paragraphs }}">
         <div class="error">
           @if($errors->get('number_of_paragraphs'))
             @foreach($errors->get('number_of_paragraphs') as $error)

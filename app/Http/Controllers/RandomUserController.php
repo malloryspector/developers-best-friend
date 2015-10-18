@@ -15,6 +15,10 @@ class RandomUserController extends Controller {
   * Responds to requests to GET /random-user-generator
   */
   public function getIndex() {
+
+    $faker = \Faker\Factory::create();
+
+    $number_of_users = 1;
     $name = true;
     $address = true;
     $email = true;
@@ -24,7 +28,40 @@ class RandomUserController extends Controller {
     $birthday = true;
     $blurb = true;
 
+    // create an empty array to hold user information
+    $user_info = array();
+
+    // create user content based on number of users requested and form values
+    for ($i = 0; $i < $number_of_users; $i++) {
+      if (isset($name)) {
+        $user_info[$i]['name'] = $faker->firstName . ' ' . $faker->lastName;
+      }
+      if (isset($address)) {
+        $user_info[$i]['address'] = $faker->address;
+      }
+      if (isset($email)) {
+        $user_info[$i]['email'] = $faker->email;
+      }
+      if (isset($phone_number)) {
+        $user_info[$i]['phone_number'] = $faker->phoneNumber;
+      }
+      if (isset($username)) {
+        $user_info[$i]['username'] = $faker->userName;
+      }
+      if (isset($password)) {
+        $user_info[$i]['password'] = $faker->password;
+      }
+      if (isset($birthday)) {
+        $user_info[$i]['birthday'] = $faker->date;
+      }
+      if (isset($blurb)) {
+        $user_info[$i]['blurb'] = $faker->paragraph($nbSentences = 3);
+      }
+    }
+
     return view('randomuser')
+      ->with('user_info', $user_info)
+      ->with('number_of_users', $number_of_users)
       ->with('name', $name)
       ->with('address', $address)
       ->with('email', $email)

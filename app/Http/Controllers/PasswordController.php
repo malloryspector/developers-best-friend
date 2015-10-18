@@ -15,7 +15,27 @@ class PasswordController extends Controller {
   * Responds to requests to GET /xkcd-password-generator
   */
   public function getIndex() {
-    return view('xkcdpassword');
+
+    // to do - move these to storage
+    $words = array("notice", "yarn", "want", "second", "cat", "impolite", "pump", "playground", "blue", "box", "day", "produce", "table", "sheet", "apparatus", "protect", "late", "house", "lumpy", "wooden", "banana", "balloon", "dog", "index", "receipt", "proposal", "dear", "faint", "song", "big", "impact", "crowd", "silk", "poem", "define", "budget", "cow", "chicken", "crime", "stock", "arrival", "high", "portrait", "police", "afford");
+    $symbols = array("!", "@", "#", "$", "%", "?", "&", "*");
+    //$file = file_get_contents(storage_path() . ‘/app/words/words.txt’);
+
+    $number_of_words = 4;
+    $separator = "-";
+
+    $password_words = array();
+
+    for ($i = 0; $i < $number_of_words; $i++) {
+      $rand_word = $words[rand(0, count($words)-1)];
+      $password_words[$i] = $rand_word;
+    }
+
+    $password = implode($separator, $password_words);
+
+    return view('xkcdpassword')
+      ->with('password', $password)
+      ->with('number_of_words', $number_of_words);
   }
 
   /**
@@ -38,7 +58,6 @@ class PasswordController extends Controller {
     $add_a_symbol = $request->input('add_a_symbol');
     $additional_symbol_qty = $request->input('additional_symbols');
     $separator = $request->input('separator');
-
 
     $password_words = array();
 

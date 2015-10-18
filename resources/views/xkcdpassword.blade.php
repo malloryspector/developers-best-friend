@@ -20,8 +20,8 @@
       <input type='hidden' value='{{ csrf_token() }}' name='_token'>
       <div class="form-group">
         {{-- Word Count Section --}}
-        <label for="number_of_words">Number of Words</label>
-        <input type="text" class="form-control" id="number_of_words" name="number_of_words" value="{{ $number_of_words or 'Number of Words (9 max)' }}">
+        <label for="number_of_words">Number of Words (9 max)</label>
+        <input type="text" class="form-control" id="number_of_words" name="number_of_words" value="{{ $number_of_words }}">
         <div class="error">
           @if($errors->get('number_of_words'))
             @foreach($errors->get('number_of_words') as $error)

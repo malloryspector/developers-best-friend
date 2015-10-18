@@ -16,7 +16,17 @@ class LoremController extends Controller {
   * Responds to requests to GET /lorem-ipsum
   */
   public function getIndex() {
-    return view('lorem');
+    // generate one paragraph for intial pageload
+    $number_of_paragraphs = 1;
+
+    // use lorem ipsum package to generate paragraphs
+    $generator = new Generator();
+    $paragraphs = $generator->getParagraphs($number_of_paragraphs);
+
+    // return the lorem view with generated paragraphs and user input
+    return view('lorem')
+      ->with('paragraphs', $paragraphs)
+      ->with('number_of_paragraphs', $number_of_paragraphs);
   }
 
   /**
@@ -35,7 +45,7 @@ class LoremController extends Controller {
     $generator = new Generator();
     $paragraphs = $generator->getParagraphs($number_of_paragraphs);
 
-    // return the lorem view with generated paragraphs
+    // return the lorem view with generated paragraphs and user input
     return view('lorem')
       ->with('paragraphs', $paragraphs)
       ->with('number_of_paragraphs', $number_of_paragraphs);
