@@ -7,17 +7,12 @@ use Illuminate\Http\Request;
 
 class RandomUserController extends Controller {
 
-  public function __construct() {
-    # Put anything here that should happen before any of the other actions
-  }
-
   /**
   * Responds to requests to GET /random-user-generator
   */
   public function getIndex() {
 
-    $faker = \Faker\Factory::create();
-
+    // set the default values for initial load
     $number_of_users = 1;
     $name = true;
     $address = true;
@@ -28,36 +23,8 @@ class RandomUserController extends Controller {
     $birthday = true;
     $blurb = true;
 
-    // create an empty array to hold user information
-    $user_info = array();
-
-    // create user content based on number of users requested and form values
-    for ($i = 0; $i < $number_of_users; $i++) {
-      if (isset($name)) {
-        $user_info[$i]['name'] = $faker->firstName . ' ' . $faker->lastName;
-      }
-      if (isset($address)) {
-        $user_info[$i]['address'] = $faker->address;
-      }
-      if (isset($email)) {
-        $user_info[$i]['email'] = $faker->email;
-      }
-      if (isset($phone_number)) {
-        $user_info[$i]['phone_number'] = $faker->phoneNumber;
-      }
-      if (isset($username)) {
-        $user_info[$i]['username'] = $faker->userName;
-      }
-      if (isset($password)) {
-        $user_info[$i]['password'] = $faker->password;
-      }
-      if (isset($birthday)) {
-        $user_info[$i]['birthday'] = $faker->date;
-      }
-      if (isset($blurb)) {
-        $user_info[$i]['blurb'] = $faker->paragraph($nbSentences = 3);
-      }
-    }
+    // generate random users
+    $user_info = self::createRandomUser($number_of_users, $name, $address, $email, $phone_number, $username, $password, $birthday, $blurb);
 
     return view('randomuser')
       ->with('user_info', $user_info)
@@ -81,9 +48,7 @@ class RandomUserController extends Controller {
       'number_of_users' => 'required|numeric|max:9',
     ]);
 
-    $faker = \Faker\Factory::create();
-
-    // collect all form values
+    // collect all submitted form values
     $number_of_users = $request->input('number_of_users');
     $name = $request->input('name');
     $address = $request->input('address');
@@ -93,6 +58,33 @@ class RandomUserController extends Controller {
     $password = $request->input('password');
     $birthday = $request->input('birthday');
     $blurb = $request->input('blurb');
+
+    // generate random users
+    $user_info = self::createRandomUser($number_of_users, $name, $address, $email, $phone_number, $username, $password, $birthday, $blurb);
+
+    return view('randomuser')
+      ->with('user_info', $user_info)
+      ->with('number_of_users', $number_of_users)
+      ->with('name', $name)
+      ->with('address', $address)
+      ->with('email', $email)
+      ->with('phone_number', $phone_number)
+      ->with('username', $username)
+      ->with('password', $password)
+      ->with('birthday', $birthday)
+      ->with('blurb', $blurb);
+  }
+
+  /**
+  * Private function to create a random user.
+  * Logic is duplicated for both postIndex() and getIndex().
+  * Separated into a private function to avoid duplication.
+  *
+  * @return array $user_info
+  */
+  private function createRandomUser($number_of_users, $name, $address, $email, $phone_number, $username, $password, $birthday, $blurb) {
+
+    $faker = \Faker\Factory::create();
 
     // create an empty array to hold user information
     $user_info = array();
@@ -125,16 +117,6 @@ class RandomUserController extends Controller {
       }
     }
 
-    return view('randomuser')
-      ->with('user_info', $user_info)
-      ->with('number_of_users', $number_of_users)
-      ->with('name', $name)
-      ->with('address', $address)
-      ->with('email', $email)
-      ->with('phone_number', $phone_number)
-      ->with('username', $username)
-      ->with('password', $password)
-      ->with('birthday', $birthday)
-      ->with('blurb', $blurb);
+    return $user_info;
   }
 }
