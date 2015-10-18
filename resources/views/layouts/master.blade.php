@@ -20,6 +20,10 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <!-- Additional Styling -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link href="/css/style.css" rel="stylesheet">
+
     {{-- page specific styling --}}
     @yield('styling')
   </head>
@@ -60,6 +64,9 @@
     </section>
 
   	<!-- Footer -->
+    <footer>
+      <p>Footer text will go here</p>
+    </footer>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

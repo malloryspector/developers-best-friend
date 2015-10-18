@@ -4,25 +4,31 @@
   Random User Generator
 @stop
 
+@section('styling')
+  <link href="/css/random.css" rel="stylesheet">
+@stop
+
 @section('jumbotron')
   <h1>Random User Generator</h1>
-  <p>Text goes here</p>
+  <p>Create random and fake users to use in any project.</p>
 @stop
 
 @section('tools')
-  <div class="col-md-6">
-    <h2>Form</h2>
+  <div class="col-md-4 formbackground">
+    <h2>Select Your Options</h2>
     <form method="POST" action="/random-user-generator">
       <input type='hidden' name='_token' value='{{ csrf_token() }}'>
       <div class="form-group">
         {{-- Number of Users --}}
         <label for="number_of_users">Number of Users</label>
         <input type="text" class="form-control" id="number_of_users" name="number_of_users" value="{{ $number_of_users or 'Number of Users (9 max)' }}">
-        @if($errors->get('number_of_users'))
-          @foreach($errors->get('number_of_users') as $error)
-            {{ $error }}
-          @endforeach
-        @endif
+        <div class="error">
+          @if($errors->get('number_of_users'))
+            @foreach($errors->get('number_of_users') as $error)
+              {{ $error }}
+            @endforeach
+          @endif
+        </div>
       </div>
       <div class="form-group">
         {{-- Name --}}
@@ -40,9 +46,10 @@
       </div>
       <button type="submit" class="btn btn-default">Submit</button>
     </form>
+    <br>
   </div>
-  <div class="col-md-6">
-    <h2>Output</h2>
+  <div class="col-md-8">
+    <h2>Generated Users</h2>
     @if (isset($user_info))
       @foreach ($user_info as $user => $information)
         @if (isset($information['name']))
