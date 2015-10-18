@@ -13,17 +13,17 @@
   <div class="col-md-6">
     <h2>Form</h2>
     <form method="POST" action="/xkcd-password-generator">
-      <input type='hidden' name='_token' value='{{ csrf_token() }}'>
+      <input type='hidden' value='{{ csrf_token() }}' name='_token'>
       <div class="form-group">
         {{-- Word Count Section --}}
         <label for="number_of_words">Number of Words</label>
-        <input type="text" class="form-control" id="number_of_words" placeholder="Number of Words (max 9)">
+        <input type="text" class="form-control" id="number_of_words" name="number_of_words" placeholder="Number of Words (max 9)">
       </div>
       <div class="form-group">
         {{-- Number Option Section --}}
-        <input type="checkbox" id="add_a_number">
+        <input type="checkbox" id="add_a_number" name="add_a_number">
         <label for="add_a_number">Add a number</label>
-        <select class="form-control" id="additional_numbers">
+        <select class="form-control" id="additional_numbers" name="additional_numbers">
           <option>1</option>
           <option>2</option>
           <option>3</option>
@@ -34,9 +34,9 @@
       </div>
       <div class="form-group">
         {{-- Symbol Option Section --}}
-        <input type="checkbox" id="add_a_symbol">
+        <input type="checkbox" id="add_a_symbol" name="add_a_symbol">
         <label for="add_a_symbol">Add a symbol</label>
-        <select class="form-control" id="additional_symbols">
+        <select class="form-control" id="additional_symbols" name="additional_symbols">
           <option>1</option>
           <option>2</option>
           <option>3</option>
@@ -48,7 +48,7 @@
       <div class="form-group">
         {{-- Separator Section --}}
         <label for="separator">Choose your separator</label>
-        <select class="form-control" id="separator">
+        <select class="form-control" id="separator" name="separator">
           <option>hyphen</option>
           <option>space</option>
           <option>no space</option>
@@ -60,5 +60,8 @@
   </div>
   <div class="col-md-6">
     <h2>Output</h2>
+    @if (isset($password))
+      <p>{{ $password }}</p>
+    @endif
   </div>
 @stop
