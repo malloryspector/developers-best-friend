@@ -1,11 +1,19 @@
 .jumbotron {
-  background-color: #74525f;
+  background-color: #832D51;
 }
 
 .btn-default {
-  background-color: #74525f;
+  background-color: #832D51;
+}
+
+a {
+  color: #333;
+}
+
+a:hover {
+  color: #832D51;
 }
 
 h2 {
-  color: #74525f;
+  color: #832D51;
 }

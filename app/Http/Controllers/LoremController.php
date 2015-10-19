@@ -12,15 +12,11 @@ class LoremController extends Controller {
   * Responds to requests to GET /lorem-ipsum
   */
   public function getIndex() {
-    // generate one paragraph for intial pageload
+    // generate one paragraph for intial pageload value
     $number_of_paragraphs = 1;
-
-    // generate paragraphs
-    $paragraphs = self::createParagraphs($number_of_paragraphs);
 
     // return the lorem view with generated paragraphs and user input
     return view('lorem')
-      ->with('paragraphs', $paragraphs)
       ->with('number_of_paragraphs', $number_of_paragraphs);
   }
 
@@ -46,9 +42,7 @@ class LoremController extends Controller {
   }
 
   /**
-  * Private function to create paragraphs.
-  * Logic is duplicated for both postIndex() and getIndex().
-  * Separated into a private function to avoid duplication.
+  * Private function with logic to create paragraphs.
   *
   * @return array $paragraphs
   */

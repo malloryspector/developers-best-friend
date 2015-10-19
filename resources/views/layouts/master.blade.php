@@ -65,7 +65,7 @@
 
   	<!-- Footer -->
     <footer>
-      <p>2015 Dynamic Web Applications - Project 3</p>
+      <p>2015 Dynamic Web Applications - <a href="https://github.com/malloryspector/developers-best-friend">Github Link</a></p>
     </footer>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

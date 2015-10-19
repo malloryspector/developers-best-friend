@@ -21,7 +21,7 @@
       <div class="form-group">
         {{-- Number of Users --}}
         <label for="number_of_users">Number of Users (9 max)</label>
-        <input type="text" class="form-control" id="number_of_users" name="number_of_users" value="{{ $number_of_users }}">
+        <input type="text" class="form-control" id="number_of_users" name="number_of_users" value="{{ old('number_of_users', $number_of_users) }}">
         <div class="error">
           @if($errors->get('number_of_users'))
             @foreach($errors->get('number_of_users') as $error)
@@ -32,28 +32,28 @@
       </div>
       <div class="form-group">
         {{-- Name --}}
-        <input type="checkbox" id="name" name="name" @if (isset($name)) {{ "checked='checked'" }} @endif>
+        <input type="checkbox" id="name" name="name" @if (isset($name)) {{ 'checked' }} @endif>
         <label for="name">Name</label><br>
         {{-- Address --}}
-        <input type="checkbox" id="address" name="address" @if (isset($address)) {{ "checked='checked'" }} @endif>
+        <input type="checkbox" id="address" name="address" @if (isset($address)) {{ 'checked' }} @endif>
         <label for="address">Address</label><br>
         {{-- Email --}}
-        <input type="checkbox" id="email" name="email" @if (isset($email)) {{ "checked='checked'" }} @endif>
+        <input type="checkbox" id="email" name="email" @if (isset($email)) {{ 'checked' }} @endif>
         <label for="email">E-Mail</label><br>
         {{-- Phone Number --}}
-        <input type="checkbox" id="phone_number" name="phone_number" @if (isset($phone_number)) {{ "checked='checked'" }} @endif>
+        <input type="checkbox" id="phone_number" name="phone_number" @if (isset($phone_number)) {{ 'checked' }} @endif>
         <label for="phone_number">Phone Number</label><br>
         {{-- Username --}}
-        <input type="checkbox" id="username" name="username" @if (isset($username)) {{ "checked='checked'" }} @endif>
+        <input type="checkbox" id="username" name="username" @if (isset($username)) {{ 'checked' }} @endif>
         <label for="username">Username</label><br>
         {{-- Password --}}
-        <input type="checkbox" id="password" name="password" @if (isset($password)) {{ "checked='checked'" }} @endif>
+        <input type="checkbox" id="password" name="password" @if (isset($password)) {{ 'checked' }} @endif>
         <label for="password">Password</label><br>
         {{-- Birthday --}}
-        <input type="checkbox" id="birthday" name="birthday" @if (isset($birthday)) {{ "checked='checked'" }} @endif>
+        <input type="checkbox" id="birthday" name="birthday" @if (isset($birthday)) {{ 'checked' }} @endif>
         <label for="birthday">Birthday</label><br>
         {{-- Blurb --}}
-        <input type="checkbox" id="blurb" name="blurb" @if (isset($blurb)) {{ "checked='checked'" }} @endif>
+        <input type="checkbox" id="blurb" name="blurb" @if (isset($blurb)) {{ 'checked' }} @endif>
         <label for="blurb">Profile Description</label>
       </div>
       <button type="submit" class="btn btn-default">Submit</button>
@@ -90,6 +90,8 @@
         @endif
         <br>
       @endforeach
+    @else
+      <p>Generated users will go here.</p>
     @endif
   </div>
 @stop

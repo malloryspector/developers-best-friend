@@ -12,31 +12,10 @@ class RandomUserController extends Controller {
   */
   public function getIndex() {
 
-    // set the default values for initial load
+    // set the default value for initial load
     $number_of_users = 1;
-    $name = true;
-    $address = true;
-    $email = true;
-    $phone_number = true;
-    $username = true;
-    $password = true;
-    $birthday = true;
-    $blurb = true;
 
-    // generate random users
-    $user_info = self::createRandomUser($number_of_users, $name, $address, $email, $phone_number, $username, $password, $birthday, $blurb);
-
-    return view('randomuser')
-      ->with('user_info', $user_info)
-      ->with('number_of_users', $number_of_users)
-      ->with('name', $name)
-      ->with('address', $address)
-      ->with('email', $email)
-      ->with('phone_number', $phone_number)
-      ->with('username', $username)
-      ->with('password', $password)
-      ->with('birthday', $birthday)
-      ->with('blurb', $blurb);
+    return view('randomuser')->with('number_of_users', $number_of_users);
   }
 
   /**
@@ -77,8 +56,6 @@ class RandomUserController extends Controller {
 
   /**
   * Private function to create a random user.
-  * Logic is duplicated for both postIndex() and getIndex().
-  * Separated into a private function to avoid duplication.
   *
   * @return array $user_info
   */
