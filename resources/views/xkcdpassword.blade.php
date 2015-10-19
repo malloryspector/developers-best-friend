@@ -60,10 +60,10 @@
         {{-- Separator Section --}}
         <label for="separator">Choose your separator</label>
         <select class="form-control" id="separator" name="separator">
-          <option @if (isset($separator) && $separator == "-") {{ "selected='true'" }} @endif>hyphen</option>
-          <option @if (isset($separator) && $separator == " ") {{ "selected='true'" }} @endif>space</option>
-          <option @if (isset($separator) && $separator == "") {{ "selected='true'" }} @endif>no space</option>
-          <option @if (isset($separator) && $separator == ".") {{ "selected='true'" }} @endif>dot</option>
+          <option @if (isset($separator) && $separator == "hyphen") {{ "selected='true'" }} @endif>hyphen</option>
+          <option @if (isset($separator) && $separator == "space") {{ "selected='true'" }} @endif>space</option>
+          <option @if (isset($separator) && $separator == "no space") {{ "selected='true'" }} @endif>no space</option>
+          <option @if (isset($separator) && $separator == "dot") {{ "selected='true'" }} @endif>dot</option>
         </select>
       </div>
       <button type="submit" class="btn btn-default">Submit</button>
@@ -73,7 +73,7 @@
   <div class="col-md-8">
     <h2>Password</h2>
     @if (isset($password))
-      <p>{{ $password }}</p>
+      <h3>{{ $password }}</h3>      
     @endif
   </div>
 @stop

@@ -69,10 +69,9 @@ class PasswordController extends Controller {
   * @return string $password
   */
   private function createPassword($number_of_words, $add_a_number, $additional_number_qty, $add_a_symbol, $additional_symbol_qty, $separator) {
-    // to do - move these to storage
+    // leaving these in the controller for now even though they should be moved
     $words = array("notice", "yarn", "want", "second", "cat", "impolite", "pump", "playground", "blue", "box", "day", "produce", "table", "sheet", "apparatus", "protect", "late", "house", "lumpy", "wooden", "banana", "balloon", "dog", "index", "receipt", "proposal", "dear", "faint", "song", "big", "impact", "crowd", "silk", "poem", "define", "budget", "cow", "chicken", "crime", "stock", "arrival", "high", "portrait", "police", "afford");
     $symbols = array("!", "@", "#", "$", "%", "?", "&", "*");
-    //$file = file_get_contents(storage_path() . ‘/app/words/words.txt’);
 
     /**
      * Create an empty array to store the words that will be used

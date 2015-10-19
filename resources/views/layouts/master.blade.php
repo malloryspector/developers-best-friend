@@ -65,7 +65,7 @@
 
   	<!-- Footer -->
     <footer>
-      <p>Footer text will go here</p>
+      <p>2015 Dynamic Web Applications - Project 3</p>
     </footer>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
