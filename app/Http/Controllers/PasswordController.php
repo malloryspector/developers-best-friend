@@ -14,18 +14,18 @@ class PasswordController extends Controller {
 
     // set default values for initial load
     $number_of_words = 4;
-    $add_a_number = false;
+    /*$add_a_number = false;
     $additional_number_qty = false;
     $add_a_symbol = false;
     $additional_symbol_qty = false;
-    $separator = "hyphen";
+    $separator = "hyphen";*/
 
     // create password
-    $password = self::createPassword($number_of_words, $add_a_number, $additional_number_qty, $add_a_symbol, $additional_symbol_qty, $separator);
+    //$password = self::createPassword($number_of_words, $add_a_number, $additional_number_qty, $add_a_symbol, $additional_symbol_qty, $separator);
 
     // return the xkcdpassword view with password and default input
     return view('xkcdpassword')
-      ->with('password', $password)
+      //->with('password', $password)
       ->with('number_of_words', $number_of_words);
   }
 
@@ -63,8 +63,6 @@ class PasswordController extends Controller {
 
   /**
   * Private function to create password.
-  * Logic is duplicated for both postIndex() and getIndex().
-  * Separated into a private function to avoid duplication.
   *
   * @return string $password
   */

@@ -6,6 +6,14 @@
   background-color: #D1404A;
 }
 
+a {
+  color: #333;
+}
+
+a:hover {
+  color: #D1404A;
+}
+
 h2 {
   color: #D1404A;
 }

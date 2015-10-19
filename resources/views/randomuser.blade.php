@@ -21,7 +21,7 @@
       <div class="form-group">
         {{-- Number of Users --}}
         <label for="number_of_users">Number of Users (9 max)</label>
-        <input type="text" class="form-control" id="number_of_users" name="number_of_users" value="{{ $number_of_users }}">
+        <input type="text" class="form-control" id="number_of_users" name="number_of_users" value="{{ old('number_of_users', $number_of_users) }}">
         <div class="error">
           @if($errors->get('number_of_users'))
             @foreach($errors->get('number_of_users') as $error)
@@ -90,6 +90,8 @@
         @endif
         <br>
       @endforeach
+    @else
+      <p>Generated users will go here.</p>
     @endif
   </div>
 @stop

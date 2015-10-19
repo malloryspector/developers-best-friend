@@ -21,7 +21,7 @@
       <div class="form-group">
         {{-- Word Count Section --}}
         <label for="number_of_words">Number of Words (9 max)</label>
-        <input type="text" class="form-control" id="number_of_words" name="number_of_words" value="{{ $number_of_words }}">
+        <input type="text" class="form-control" id="number_of_words" name="number_of_words" value="{{ old('number_of_words', $number_of_words) }}">
         <div class="error">
           @if($errors->get('number_of_words'))
             @foreach($errors->get('number_of_words') as $error)
@@ -73,7 +73,9 @@
   <div class="col-md-8">
     <h2>Password</h2>
     @if (isset($password))
-      <h3>{{ $password }}</h3>      
+      <h3>{{ $password }}</h3>
+    @else
+      <p>Generated password will go here.</p>
     @endif
   </div>
 @stop
