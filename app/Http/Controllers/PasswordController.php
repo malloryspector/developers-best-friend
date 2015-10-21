@@ -70,8 +70,7 @@ class PasswordController extends Controller {
   * @return string $password
   */
   private function createPassword($number_of_words, $add_a_number, $additional_number_qty, $add_a_symbol, $additional_symbol_qty, $separator) {
-    // leaving these in the controller for now even though they should be moved
-    $words = array("notice", "yarn", "want", "second", "cat", "impolite", "pump", "playground", "blue", "box", "day", "produce", "table", "sheet", "apparatus", "protect", "late", "house", "lumpy", "wooden", "banana", "balloon", "dog", "index", "receipt", "proposal", "dear", "faint", "song", "big", "impact", "crowd", "silk", "poem", "define", "budget", "cow", "chicken", "crime", "stock", "arrival", "high", "portrait", "police", "afford");
+
     $symbols = array("!", "@", "#", "$", "%", "?", "&", "*");
 
     /**
@@ -82,11 +81,17 @@ class PasswordController extends Controller {
 
     /**
      * Generate a password based on the value of $number_of_words (how many words to use)
-     * Get a random word from $word and set it to $rand_word
+     * Get a random word from wors.txt file and set it to $rand_word
      * Set random word $rand_word into our chosen words array $password_words
      */
     for ($i = 0; $i < $number_of_words; $i++) {
+      $file = file_get_contents(storage_path() . '/app/words/words.txt');
+      // help with regular expression below from:
+      // http://stackoverflow.com/questions/19572738/php-preg-split-remove-commas-and-trailing-white-space
+      $words = preg_split('/[\s,]+/', $file);
+      $count = count($words);
       $rand_word = $words[rand(0, count($words)-1)];
+      $password_word = $rand_word;
       $password_words[$i] = $rand_word;
     }
 
