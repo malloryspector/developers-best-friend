@@ -15,7 +15,26 @@ class RandomUserController extends Controller {
     // set the default value for initial load
     $number_of_users = 1;
 
-    return view('randomuser')->with('number_of_users', $number_of_users);
+    // set to keep user input if there is an error
+    $name = old('name');
+    $address = old('address');
+    $email = old('email');
+    $phone_number = old('phone_number');
+    $username = old('username');
+    $password = old('password');
+    $birthday = old('birthday');
+    $blurb = old('blurb');
+
+    return view('randomuser')
+      ->with('number_of_users', $number_of_users)
+      ->with('name', $name)
+      ->with('address', $address)
+      ->with('email', $email)
+      ->with('phone_number', $phone_number)
+      ->with('username', $username)
+      ->with('password', $password)
+      ->with('birthday', $birthday)
+      ->with('blurb', $blurb);
   }
 
   /**

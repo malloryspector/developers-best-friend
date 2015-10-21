@@ -12,21 +12,24 @@ class PasswordController extends Controller {
   */
   public function getIndex() {
 
-    // set default values for initial load
+    // set default value for initial load
     $number_of_words = 4;
-    /*$add_a_number = false;
-    $additional_number_qty = false;
-    $add_a_symbol = false;
-    $additional_symbol_qty = false;
-    $separator = "hyphen";*/
 
-    // create password
-    //$password = self::createPassword($number_of_words, $add_a_number, $additional_number_qty, $add_a_symbol, $additional_symbol_qty, $separator);
+    // set to keep user input if there is an error
+    $add_a_number = old('add_a_number');
+    $additional_number_qty = old('additional_numbers');
+    $add_a_symbol = old('add_a_symbol');
+    $additional_symbol_qty = old('additional_symbols');
+    $separator = old('separator');
 
     // return the xkcdpassword view with password and default input
     return view('xkcdpassword')
-      //->with('password', $password)
-      ->with('number_of_words', $number_of_words);
+      ->with('number_of_words', $number_of_words)
+      ->with('add_a_number', $add_a_number)
+      ->with('additional_numbers', $additional_number_qty)
+      ->with('add_a_symbol', $add_a_symbol)
+      ->with('additional_symbols', $additional_symbol_qty)
+      ->with('separator', $separator);
   }
 
   /**
