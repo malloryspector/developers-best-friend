@@ -22,7 +22,7 @@
   </div>
   <div class="col-md-4">
     <h2>xkcd Password Generator</h2>
-    <p>Inspired by the xkcd password strength comic this application lets you generate a random password phrase based on the criteria you choose. This style of password is difficult to guess but easier to remember then generating a string of random numbers and letters.</p>
+    <p>Inspired by the <a href="http://xkcd.com/936/">xkcd password strength comic</a> this application lets you generate a random password phrase based on the criteria you choose. This style of password is difficult to guess but easier to remember then generating a string of random numbers and letters.</p>
     <a class="btn btn-default" href="/xkcd-password-generator" role="button">Generate Passwords</a>
   </div>
 @stop
