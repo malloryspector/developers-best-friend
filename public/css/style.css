@@ -1,22 +1,38 @@
 body {
   font-family: 'Montserrat', sans-serif;
+  background-image: url("/images/main.png");
+  background-repeat: repeat;
+  color: #656565;
 }
 
 .navbar-brand {
   padding-left: 0px;
-  color: #333;
+  color: #fff;
+}
+
+i {
+  color: #705877;
+  padding-right: 10px;
 }
 
 a {
-  color: #333;
+  color: #fff;
 }
 
 a:hover {
-  color: rgb(0, 164, 161);
+  color: #1d1724;
+}
+
+a.navbar-brand:hover {
+  color: #ddd;
+}
+
+p a {
+  color: #000;
 }
 
 .jumbotron {
-  background-color: rgb(0, 164, 161);
+  background-color: transparent;
   color: #ffffff;
   text-align: center;
 }
@@ -26,44 +42,29 @@ a:hover {
 }
 
 h2 {
-  color: rgb(0, 164, 161);
+  color: #705877;
   font-size: 22px;
 }
 
-.formbackground {
+.row {
   background-color: #ddd;
 }
 
+.form-background {
+  background-color: #ddd;
+}
+
+.results-background {
+  background-color: #fff;
+}
+
 .btn-default {
-  background-color: rgb(0, 164, 161);
+  margin-bottom: 20px;
+  background-color: #705877;
   border-color: none;
   color: #ffffff;
 }
 
 .error {
   color: red;
-  padding-top: 10px;
 }
-
-/* http://mystrd.at/modern-clean-css-sticky-footer */
-html {
-    position:relative;
-    min-height:100%;
-}
-
-body {
-    margin:0 0 100px; /* bottom = footer height */
-}
-
-footer {
-    position: absolute;
-    left:0;
-    bottom:0;
-    height:30px;
-    width:100%;
-    background-color:#ddd;
-    text-align:center;
-    padding:5px;
-    margin:0px;
-}
-/* End Sticky Footer */

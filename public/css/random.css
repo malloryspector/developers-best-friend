@@ -1,19 +1,17 @@
-.jumbotron {
-  background-color: #D1404A;
+body {
+  background-image: url("/images/random.png");
+  background-repeat: repeat;
 }
 
 .btn-default {
-  background-color: #D1404A;
+  background-color: #705877;
 }
 
-a {
-  color: #333;
+.results-background {
+  min-height: 450px;
 }
 
-a:hover {
-  color: #D1404A;
-}
-
+a:hover,
 h2 {
-  color: #D1404A;
+  color: #705877;
 }

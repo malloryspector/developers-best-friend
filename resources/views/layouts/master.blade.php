@@ -63,14 +63,10 @@
     	</div>
     </section>
 
-  	<!-- Footer -->
-    <footer>
-      <p>2015 Dynamic Web Applications - <a href="https://github.com/malloryspector/developers-best-friend">Github Link</a></p>
-    </footer>
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/e4a5d17ac0.js"></script>
   </body>
 </html>

@@ -1,19 +1,17 @@
-.jumbotron {
-  background-color: #832D51;
+body {
+  background-image: url("/images/lorem.png");
+  background-repeat: repeat;
 }
 
 .btn-default {
-  background-color: #832D51;
+  background-color: #5c3f66;
 }
 
-a {
-  color: #333;
+.results-background {
+  min-height: 250px;
 }
 
-a:hover {
-  color: #832D51;
-}
-
+a:hover,
 h2 {
-  color: #832D51;
+  color: #5c3f66;
 }

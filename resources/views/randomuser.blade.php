@@ -14,7 +14,7 @@
 @stop
 
 @section('tools')
-  <div class="col-md-4 formbackground">
+  <div class="col-md-4 form-background">
     <h2>Select Your Options</h2>
     <form method="POST" action="/random-user-generator">
       <input type='hidden' name='_token' value='{{ csrf_token() }}'>
@@ -60,7 +60,7 @@
     </form>
     <br>
   </div>
-  <div class="col-md-8">
+  <div class="col-md-8 results-background">
     <h2>Generated Users</h2>
     @if (isset($user_info))
       @foreach ($user_info as $user => $information)

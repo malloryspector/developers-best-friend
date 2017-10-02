@@ -14,7 +14,7 @@
 @stop
 
 @section('tools')
-  <div class="col-md-4 formbackground">
+  <div class="col-md-4 form-background">
     <h2>Select Your Options</h2>
     <form method="POST" action="/xkcd-password-generator">
       <input type='hidden' value='{{ csrf_token() }}' name='_token'>
@@ -70,7 +70,7 @@
     </form>
     <br>
   </div>
-  <div class="col-md-8">
+  <div class="col-md-8 results-background">
     <h2>Password</h2>
     @if (isset($password))
       <h3>{{ $password }}</h3>
