@@ -46,16 +46,27 @@ h2 {
   font-size: 22px;
 }
 
-.row {
-  background-color: #ddd;
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+  margin: auto;
+  align-items: flex-start;
 }
 
-.form-background {
+.tool-container {
+  flex-basis: 32%;
   background-color: #ddd;
+  min-height: 260px;
+  padding: 0 20px;
 }
 
-.results-background {
+.result-container {
+  flex-basis: 66%;
   background-color: #fff;
+  min-height: 260px;
+  padding: 0 20px;
 }
 
 .btn-default {
@@ -67,4 +78,19 @@ h2 {
 
 .error {
   color: red;
+}
+
+@media screen and (max-width: 992px) {
+  .tool-container,
+  .result-container {
+    flex-basis: 100%;
+    margin-bottom: 20px;
+    min-height: 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar-nav {
+    display: none;
+  }
 }

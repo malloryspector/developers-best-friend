@@ -56,7 +56,7 @@
   	<!-- Tools Section -->
     <section>
     	<div class="container">
-    		<div class="row">
+    		<div class="flex-row">
           {{-- Content for the tools section --}}
           @yield('tools')
     		</div>
